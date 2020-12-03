@@ -1,3 +1,53 @@
+#  General Info
+
+## General API Information
+
+* The base endpoint is: **https://www.binanceops.com**
+* All endpoints return either a JSON object or array.
+* Data is returned in ascending order. Oldest first, newest last.
+* All time and timestamp related fields are in milliseconds.
+
+## General Information on Endpoints
+
+** For GET endpoints, parameters must be sent as a query string.
+** For POST, PUT, and DELETE endpoints, the parameters may be sent as a query string or in the request body with content type application/x-www-form-urlencoded. You may mix parameters between both the query string and request body if you wish to do so.
+** Parameters may be sent in any order.
+** If a parameter sent in both the query string and request body, the query string parameter will be used.
+
+## Endpoint Security Type
+
+** Each endpoint has a security type that determines the how you will interact with it.
+** API-keys are passed into the Rest API via the X-MBX-APIKEY header.
+** API-keys and secret-keys are case sensitive.
+** API-keys can be configured to only access certain types of secure endpoints. For example, one API-key could be used for TRADE only, while another API-key can access everything except for TRADE routes.
+** By default, API-keys can access all secure routes.
+
+Security Type | Description 
+------------ | ------------ 
+NONE | Endpoint can be accessed freely.
+TRADE | Endpoint requires sending a valid API-Key and signature.
+USER_DATA | Endpoint requires sending a valid API-Key and signature.
+USER_STREAM | Endpoint requires sending a valid API-Key.
+MARKET_DATA | Endpoint requires sending a valid API-Key.
+
+## SIGNED (TRADE and USER_DATA) Endpoint Security
+
+** SIGNED endpoints require an additional parameter, signature, to be sent in the query string or request body.
+** Endpoints use HMAC SHA256 signatures. The HMAC SHA256 signature is a keyed HMAC SHA256 operation. Use your secretKey as the key and totalParams as the value for the HMAC operation.
+** The signature is not case sensitive.
+** Please make sure the signature is the end part of your query string or request body.
+** totalParams is defined as the query string concatenated with the request body.
+
+## Timing security
+
+** A SIGNED endpoint also requires a parameter, timestamp, to be sent which should be the millisecond timestamp of when the request was created and sent.
+** An additional parameter, recvWindow, may be sent to specify the number of milliseconds after timestamp the request is valid for. If recvWindow is not sent, it defaults to 5000.
+** If the server determines that the timestamp sent by the client is more than one second in the future of the server time, the request will also be rejected.
+
+**Serious trading is about timing. ** Networks can be unstable and unreliable, which can lead to requests taking varying amounts of time to reach the servers. With recvWindow, you can specify that the request must be processed within a certain number of milliseconds or be rejected by the server.
+>It is recommended to use a small recvWindow of 5000 or less!
+
+
 # Quoting interface
 
 ## Test connectivity
