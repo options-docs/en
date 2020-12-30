@@ -2,7 +2,7 @@
 
 ## General API Information
 
-* The base endpoint is: **https://testnet.binanceops.com**
+* The base endpoint is: **https://api.binance.com**
 * All endpoints return either a JSON object or array.
 * Data is returned in ascending order. Oldest first, newest last.
 * All time and timestamp related fields are in milliseconds.
@@ -52,7 +52,7 @@ MARKET_DATA | Endpoint requires sending a valid API-Key.
 
 ## Test connectivity
 
-`GET /api/v1/ping`
+`GET /opsapi/v1/ping`
 
 **Weight:**
 1
@@ -71,7 +71,7 @@ NONE
 
 ## Get server time
 
-`GET /api/v1/time`
+`GET /opsapi/v1/time`
 
 **Weight:**
 1
@@ -91,7 +91,7 @@ NONE
 
 ## Get current trading pair info
 
-`GET /api/v1/optionInfo`
+`GET /opsapi/v1/optionInfo`
 
 **Weight:**
 1
@@ -125,7 +125,7 @@ NONE
 
 ## Get current limit info and trading pair info
 
-`GET /api/v1/exchangeInfo`
+`GET /opsapi/v1/exchangeInfo`
 
 **Weight:**
 1
@@ -178,7 +178,7 @@ NONE
 
 ## Get the spot index price
 
-`GET /api/v1/index`
+`GET /opsapi/v1/index`
 
 **Weight:**
 1
@@ -203,7 +203,7 @@ underlying | STRING | YES | Spot pair（Option contract underlying asset） | BT
 
 ## Get the latest price
 
-`GET /api/v1/ticker`
+`GET /opsapi/v1/ticker`
 
 **Weight:**
 1
@@ -243,7 +243,7 @@ symbol | STRING | NO | Option trading pair | BTCUSDT-200730-9000-C
 
 ## Get the latest mark price
 
-`GET /api/v1/mark`
+`GET /opsapi/v1/mark`
 
 **Weight:**
 1
@@ -279,7 +279,7 @@ symbol | STRING | NO | Option trading pair | BTCUSDT-200730-9000-C
 
 ## Depth information
 
-`GET /api/v1/depth`
+`GET /opsapi/v1/depth`
 
 **Weight:**
 5
@@ -316,7 +316,7 @@ limit | INT | NO | Default:100 Max:1000.Optional value:[5, 10, 20, 50, 100, 500,
 
 ## Candle data
 
-`GET /api/v1/klines`
+`GET /opsapi/v1/klines`
 
 **Weight:**
 5
@@ -357,7 +357,7 @@ limit | INT | NO | Number of records Default:500 Max:1500 | 500
 
 ## Recently completed Option trades
 
-`GET /api/v1/trades`
+`GET /opsapi/v1/trades`
 
 **Weight:**
 5
@@ -389,7 +389,7 @@ limit | INT | NO | Number of records Default:100 Max:500 | 100
 
 ## Query trade history
 
-`GET /api/v1/historicalTrades`
+`GET /opsapi/v1/historicalTrades`
 
 **Weight:**
 5
@@ -425,7 +425,7 @@ limit | INT | NO | Number of records Default:100 Max:500 | 100
 
 ## Generate Listen Key (USER_STREAM)
 
-`POST /api/v1/userDataStream  (HMAC SHA256)`
+`POST /opsapi/v1/userDataStream  (HMAC SHA256)`
 
 **Weight:**
 1
@@ -451,7 +451,7 @@ timestamp | LONG | YES |  |
 
 ## Extend Listen Key validity period (USER_STREAM)
 
-`PUT /api/v1/userDataStream`
+`PUT /opsapi/v1/userDataStream`
 
 Validity period has been extended by 60 minutes after this call
 
@@ -477,7 +477,7 @@ timestamp | LONG | YES |  |
 
 ## Disable Listen Key (USER_STREAM)
 
-`DELETE /api/v1/userDataStream  (HMAC SHA256)`
+`DELETE /opsapi/v1/userDataStream  (HMAC SHA256)`
 
 **Weight:**
 1
@@ -504,7 +504,7 @@ timestamp | LONG | YES |  |
 
 ## Account asset info (USER_DATA)
 
-`GET /api/v1/account  (HMAC SHA256)`
+`GET /opsapi/v1/account  (HMAC SHA256)`
 
 **Weight:**
 1
@@ -539,7 +539,7 @@ timestamp | LONG | YES |  |
 
 ## Funds transfer (USER_DATA)
 
-`POST /api/v1/transfer  (HMAC SHA256)`
+`POST /opsapi/v1/transfer  (HMAC SHA256)`
 
 **Weight:**
 1
@@ -566,7 +566,7 @@ timestamp | LONG | YES |  |
 
 ## Option holdings info (USER_DATA)
 
-`GET /api/v1/position  (HMAC SHA256)`
+`GET /opsapi/v1/position  (HMAC SHA256)`
 
 **Weight:**
 1
@@ -607,7 +607,7 @@ timestamp | LONG | YES |  |
 
 ## Account funding flow (USER_DATA)
 
-`POST /api/v1/bill  (HMAC SHA256)`
+`POST /opsapi/v1/bill  (HMAC SHA256)`
 
 **Weight:**
 1
@@ -658,7 +658,7 @@ timestamp | LONG | YES |  |
 
 ## Option order (TRADE)
 
-`POST /api/v1/order  (HMAC SHA256)`
+`POST /opsapi/v1/order  (HMAC SHA256)`
 
 **Weight:**
 1
@@ -715,7 +715,7 @@ MARKET | quantity
 
 ## Cancel Option order (TRADE)
 
-`DELETE /api/v1/order  (HMAC SHA256)`
+`DELETE /opsapi/v1/order  (HMAC SHA256)`
 
 **Weight:**
 1
@@ -760,7 +760,7 @@ At least one instance of orderId and clientOrderId must be sent.
 
 ## Cancel all Option orders (TRADE)
 
-`DELETE /api/v1/allOpenOrders (HMAC SHA256)`
+`DELETE /opsapi/v1/allOpenOrders (HMAC SHA256)`
 
 **Weight:**
 1
@@ -784,7 +784,7 @@ timestamp | LONG | YES |  |
 
 ## Query Option order (TRADE)
 
-`GET /api/v1/order (HMAC SHA256)`
+`GET /opsapi/v1/order (HMAC SHA256)`
 
 **Weight:**
 1
@@ -829,7 +829,7 @@ At least one instance of orderId and clientOrderId must be sent.
 
 ## Query current pending Option orders (TRADE)
 
-`GET /api/v1/openOrders  (HMAC SHA256)`
+`GET /opsapi/v1/openOrders  (HMAC SHA256)`
 
 **Weight:**
 1
@@ -876,7 +876,7 @@ timestamp | LONG | YES |  |
 
 ## Query Option order history (TRADE)
 
-`GET /api/v1/historyOrders  (HMAC SHA256)`
+`GET /opsapi/v1/historyOrders  (HMAC SHA256)`
 
 **Weight:**
 1
@@ -925,12 +925,12 @@ timestamp | LONG | YES |  |
 
 ## Push Websocket account info
 
- Base URL of the API interface listed in this article: https://api.binance.com 
+ Base URL of the API interface listed in this article: **https://api.binance.com** 
  A User Data Stream listenKey is valid for 60 minutes after creation.
  You can extend the validity period by 60 minutes by performing a PUT listenKey operation.
  You can immediately terminate the current data stream by performing a DELETE listenKey operation, which will render that listenKey invalid.
  Performing a POST operation on an account with a valid listenKey will return the current valid listenKey and extend its validity period by 60 minutes. 
- The baseurl of the websocket interface is: wss://stream.binance.com:9443 
+ The baseurl of the websocket interface is: **wss://opsstream.binance.com** 
  User Data Streams are accessed at /ws/ or /stream?streams=
  Each link can be valid for no more than 24 hours. Please be sure to handle disconnection/reconnection appropriately.
  Account data stream info is not guaranteed to be in strict chronological order. Please use the E field for sorting.
@@ -940,7 +940,7 @@ timestamp | LONG | YES |  |
 ### Generate Listen Key (USER_STREAM)
 Start a new data stream. The data stream will be terminated after 60 minutes unless sending keepalive. If the account has a valid listenKey, the listenKey will be returned and the validity period will be extended by 60 minutes.
 
-`GET /v1/private/user/userDataStream`
+`GET /opsapi/v1/userDataStream`
 
 **Weight:**
 1
@@ -958,7 +958,7 @@ NONE
 ### Extend Listen Key validity period (USER_STREAM)
 The validity period will be extended until 60 minutes after this call. It is recommended to send a put request every 30 minutes.
 
-`PUT /v1/private/user/userDataStream`
+`PUT /opsapi/v1/userDataStream`
 
 **Weight:**
 1
@@ -979,7 +979,7 @@ listenKey | STRING | YES | listenKey | "pqia91ma19a5s61cv6a81va65sdf19v8a65a1a5s
 ### Delete Listen Key (USER_STREAM)
 Start a new data stream. The data stream will be terminated after 60 minutes unless sending keepalive. If the account has a valid listenKey, the listenKey will be returned and the validity period will be extended by 60 minutes.
 
-`DELETE /v1/private/user/userDataStream`
+`DELETE /opsapi/v1/userDataStream`
 
 **Weight:**
 1
