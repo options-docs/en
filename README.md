@@ -289,7 +289,7 @@ symbol | STRING | NO | Option trading pair | BTCUSDT-200730-9000-C
 Name | Type | Mandatory | Description | Demo
 ------------ | ------------ | ------------ | ------------ | ------------ 
 symbol | STRING | YES | Option trading pair | BTCUSDT-200730-9000-C
-limit | INT | NO | Default:100 Max:1000.Optional value:[5, 10, 20, 50, 100, 500, 1000] | 100
+limit | INT | NO | Default:100 Max:1000.Optional value:[10, 20, 50, 100, 500, 1000] | 100
 
 >**Response:**
 
