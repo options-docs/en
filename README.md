@@ -1239,5 +1239,10 @@ Cycle
     ]
 }
 ```
+Websocket Error Messages
 
+Error Messages | Description 
+------------ | ------------ 
+{"error":{"code":-1125,"msg":"Invalid ListenKey "}} | Invalid ListenKey 
+{"error":{"code":-1130,"msg":"UNKNOWN_PARAM "}} | UNKNOWN_PARAM
 
