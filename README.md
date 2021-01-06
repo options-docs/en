@@ -50,25 +50,6 @@ MARKET_DATA | Endpoint requires sending a valid API-Key.
 
 # Quoting interface
 
-## Test connectivity
-
-`GET /vapi/v1/ping`
-
-**Weight:**
-1
-
-**Parameters:**
-NONE
-
->**Response:**
-
-```javascript
-{
-  "code": 0,
-  "msg": "success"
-}
-```
-
 ## Get server time
 
 `GET /vapi/v1/time`
