@@ -916,7 +916,7 @@ timestamp | LONG | YES |  |
  Each link can be valid for no more than 5 minutes. send `{"event":"pong"}` to keepalive. Please be sure to handle disconnection/reconnection appropriately.
  Account data stream info is not guaranteed to be in strict chronological order. Please use the E field for sorting.
  
- Data is compressed as a GZIP file by default. After successful connection, send {"method":"BINARY", "params":["false"], "id":1} to convert to text data.
+ Data is compressed as a GZIP file by default. After successful connection, send `{"method":"BINARY", "params":["false"], "id":1}` to convert to text data.
 
 ### Generate Listen Key (USER_STREAM)
 Start a new data stream. The data stream will be terminated after 60 minutes unless sending keepalive. If the account has a valid listenKey, the listenKey will be returned and the validity period will be extended by 60 minutes.
