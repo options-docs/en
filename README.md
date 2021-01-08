@@ -1043,7 +1043,7 @@ Update under the following conditions: Order change, order placed, order cancell
  ]
 }
 ```
-### Public Data Payload: 24-hour TICKER
+### Market Streams Payload: 24-hour TICKER
 #### Subscribe to an info stream
 Request
 ```javascript
@@ -1083,7 +1083,7 @@ Request
    "v":"0"                      // vega
 }
 ```
-### Public Data Payload: Latest completed trades
+### Market Streams Payload: Latest completed trades
 
 Request
 ```javascript
@@ -1118,7 +1118,7 @@ Request
 }
 ```
 
-### Public Data Payload: Candle
+### Market Streams Payload: Candle
 
 Request
 ```javascript
@@ -1189,7 +1189,7 @@ Cycle
   ]
 }
 ```
-### Public Data Payload: Depth
+### Market Streams Payload: Depth
 Request
 ```javascript
 {
