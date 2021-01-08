@@ -913,7 +913,7 @@ timestamp | LONG | YES |  |
  Performing a POST operation on an account with a valid listenKey will return the current valid listenKey and extend its validity period by 60 minutes. 
  The baseurl of the websocket interface is: **wss://vstream.binance.com** 
  User Data Streams are accessed at /ws/ or /stream?streams=
- Each link can be valid for no more than 6 minutes. Please be sure to handle disconnection/reconnection appropriately.
+ Each link can be valid for no more than 5 minutes. send `{"event":"pong"}` to keepalive. Please be sure to handle disconnection/reconnection appropriately.
  Account data stream info is not guaranteed to be in strict chronological order. Please use the E field for sorting.
  
  Data is compressed as a GZIP file by default. After successful connection, send {"method":"BINARY", "params":["false"], "id":1} to convert to text data.
