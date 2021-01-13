@@ -1077,6 +1077,8 @@ Request
    "n":1,                       // number of trades
    "b":"0",                     // BuyImplied volatility
    "a":"0",                     // SellImplied volatility
+   "bo":"0",                    // BuyImplied One
+   "ao":"0",                    // SellImplied One   
    "d":"0",                     // delta
    "t":"0",                     // theta
    "g":"0",                     // gamma
