@@ -1198,7 +1198,7 @@ Request
 "method": "SUBSCRIBE",
 "params":
 [
-"BTCUSDT-200630-9000-P@depth5"
+"BTCUSDT-200630-9000-P@depth10"
 ],
 "id": 1
 }
