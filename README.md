@@ -1108,13 +1108,13 @@ Request
     "s":"BTCUSDT-200630-9000-P",        // currency
     "t":[                               // trade history
         {
+            "t":"1",                    // trade id
             "p":"1000",                 // trade price
             "q":"-2",                   // Trading volume
             "b":4611781675939004417,    // buy order ID
             "a":4611781675939004418,    // sell order ID
             "T":1591677567872,          // trade completed time
             "s":"-1",                   // side
-            "S":"BTCUSDT-200630-9000-P",// currency
         }
     ]
 }
