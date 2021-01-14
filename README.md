@@ -1264,7 +1264,6 @@ Request
 "id": 1
 }
 ```
-```
 Cycle
 ```html
 "1m", 
