@@ -50,6 +50,25 @@ MARKET_DATA | Endpoint requires sending a valid API-Key.
 
 # Quoting interface
 
+## Test connectivity
+
+`GET /vapi/v1/ping`
+
+**Weight:**
+1
+
+**Parameters:**
+NONE
+
+>**Response:**
+
+```javascript
+{
+  "code": 0,
+  "msg": "success"
+}
+```
+
 ## Get server time
 
 `GET /vapi/v1/time`
@@ -676,7 +695,7 @@ MARKET | quantity
   "msg": "success",
   "data": {
     "id": "4611875134427365377",        // System order number
-    "symbol": "BTC-200730-9000-C",  // Option trading pair
+    "symbol": "BTC-200730-9000-C",      // Option trading pair
     "price": 100,                       // Order Price
     "quantity": 1,                      // Order Quantity
     "executedQty": 0,                   // Number of completed trades
@@ -693,6 +712,73 @@ MARKET | quantity
   }
 }
 ```
+
+## Place Multiple Option orders (TRADE)
+
+`POST /vapi/v1/batchOrders  (HMAC SHA256)`
+
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Description |  Demo
+------------ | ------------ | ------------ | ------------ | ------------ 
+orders | LIST | YES | order list. Max 5 orders | [{"symbol":"BTC-210115-35000-C","price":"100","quantity":"0.0001","side":"BUY","type":"LIMIT"}]
+recvWindow | LONG | NO |  | 
+timestamp | LONG | YES |  | 
+
+**Where batchOrders is the list of order parameters in JSON:**
+
+Name | Type | Mandatory | Description |  Demo
+------------ | ------------ | ------------ | ------------ | ------------ 
+symbol | STRING | YES | Option trading pair | BTCUSDT-200730-9000-C
+side | ENUM | YES | Buy/sell direction: SELL, BUY | BUY
+type | ENUM | YES | Order Type: LIMIT, MARKET | LIMIT
+quantity | DECIMAL | YES | Order Quantity | 3
+price | DECIMAL | NO | Order Price | 1000
+timeInForce | ENUM | NO | Time in force method（Default GTC） | GTC
+reduceOnly | BOOLEAN | NO | Reduce Only（Default false） | false
+newOrderRespType | ENUM | NO | "ACK", "RESULT", Default "ACK" | ACK
+clientOrderId | STRING | NO | User-defined order ID cannot be repeated in pending orders | 10000
+
+Some parameters are mandatory depending on the order type as follows:
+
+Type | Mandatory parameters
+------------ | ------------ 
+LIMIT | timeInForce, quantity, price
+MARKET | quantity
+
+
+>**Response:**
+
+```javascript
+{
+  "code": 0,
+  "msg": "SUCCESS 5, FAILED 0",
+  "data": [{
+    "id": "4611875134427365377",        // System order number
+    "symbol": "BTC-200730-9000-C",  // Option trading pair
+    "price": 100,                       // Order Price
+    "quantity": 1,                      // Order Quantity
+    "executedQty": 0,                   // Number of completed trades
+    "fee": 0,                           // Fee 
+    "side": "BUY",                      // Buy/sell direction
+    "type": "LIMIT",                    // Order type
+    "timeInForce": "GTC",               // Time in force method
+    "createDate": 1592465880683,        // Order Time
+    "status": "ACCEPTED",               // Order status
+    "avgPrice": 0,                      // Average price of completed trade
+    "source": "WEB",                    // Order source
+    "reduceOnly": false,                // Order is reduce only Y/N
+    "clientOrderId": ""                 // Client order ID
+  }]
+}
+```
+
+* Paremeter rules are same with New Order
+* Batch orders are processed concurrently, and the order of matching is not guaranteed.
+* The order of returned contents for batch orders is the same as the order of the order list.
 
 ## Cancel Option order (TRADE)
 
@@ -736,6 +822,51 @@ At least one instance of orderId and clientOrderId must be sent.
     "reduceOnly": false,                // Order is reduce only Y/N
     "clientOrderId": ""                 // Client order ID
   }
+}
+```
+
+## Cancel Multiple Option orders (TRADE)
+
+`DELETE /vapi/v1/batchOrders  (HMAC SHA256)`
+
+**Weight:**
+1
+
+**Parameters:**
+
+Name | Type | Mandatory | Description |  Demo
+------------ | ------------ | ------------ | ------------ | ------------ 
+symbol | STRING | YES | Option trading pair | BTC-200730-9000-C
+orderIds | LIST<LONG> | NO | Order ID | [4611875134427365377,4611875134427365378]
+clientOrderIds | LIST<STRING> | NO | User-defined order ID | ["my_id_1","my_id_2"]
+recvWindow | LONG | NO |  | 
+timestamp | LONG | YES |  | 
+
+Either orderIds or origClientOrderIds must be sent.
+
+>**Response:**
+
+```javascript
+{
+  "code": 0,
+  "msg": "SUCCESS 5, FAILED 0",
+  "data": [{
+    "id": "4611875134427365377",        // System order number
+    "symbol": "BTCUSDT-200730-9000-C",  // Option trading pair
+    "price": 100,                       // Order Price
+    "quantity": 1,                      // Order Quantity
+    "executedQty": 0,                   // Number of completed trades
+    "fee": 0,                           // Fee 
+    "side": "BUY",                      // Buy/sell direction
+    "type": "LIMIT",                    // Order type
+    "timeInForce": "GTC",               // Time in force method
+    "createDate": 1592465880683,        // Order Time
+    "status": "ACCEPTED",               // Order status
+    "avgPrice": 0,                      // Average price of completed trade
+    "source": "WEB",                    // Order source
+    "reduceOnly": false,                // Order is reduce only Y/N
+    "clientOrderId": ""                 // Client order ID
+  }]
 }
 ```
 
@@ -1108,13 +1239,13 @@ Request
     "s":"BTC-200630-9000-P",        // currency
     "t":[                               // trade history
         {
-            "t":"1",                    // trade id
+            "t":"1",                    // trade ID
             "p":"1000",                 // trade price
             "q":"-2",                   // Trading volume
             "b":4611781675939004417,    // buy order ID
             "a":4611781675939004418,    // sell order ID
             "T":1591677567872,          // trade completed time
-            "s":"-1",                   // side
+            "s":"-1",                   // direction
         }
     ]
 }
@@ -1167,4 +1298,86 @@ Cycle
         "l":"1000",                     // low
         "c":"1000",                     // close
         "v":"0",                        // volume
-        "n":0,                          // 
+        "n":0,                          // number of trades
+        "q":"0",                        // completed trade amount
+        "x":false,                      // current candle has been completed Y/N
+        "V":"0",                        // taker completed trade volume
+        "Q":"0"                         // taker trade amount
+    },{                                 // Latest candle data
+        "t":1591677900000,              // candle event
+        "i":"1m",                       // candle period
+        "F":0,                          // first trade ID
+        "L":0,                          // last trade ID
+        "o":"1000",                     // open
+        "h":"1000",                     // high    
+        "l":"1000",                     // low
+        "c":"1000",                     // close
+        "v":"0",                        // volume
+        "n":0,                          // number of trades
+        "q":"0",                        // completed trade amount
+        "x":false,                      // current candle has been completed Y/N
+        "V":"0",                        // taker completed trade volume
+        "Q":"0"                         // taker trade amount
+    }
+  ]
+}
+```
+### Market Streams Payload: Depth
+Request
+```javascript
+{
+"method": "SUBSCRIBE",
+"params":
+[
+"BTCUSDT-200630-9000-P@depth10"
+],
+"id": 1
+}
+
+```
+Cycle
+```html
+"10", 
+"20", 
+"50",
+"100"
+"1000"
+```
+>**Response:**
+1000 Diff. Depth Stream
+```javascript
+{
+    "e":"depth",                    // event type
+    "E":1591695934033,              // event time
+    "s":"BTCUSDT-200630-9000-P",    // currency
+    "b":[                           // Buyorder
+        [
+            "200",                  // Price
+            "3",                    // volume
+        ],
+        [
+            "101",
+            "1"
+        ],
+        [
+            "100",
+            "2"
+        ]
+    ],
+    "a":[                           // Sellorder
+        [
+            "1000",
+            "89"
+        ]
+    ]
+}
+```
+
+Websocket Error Messages
+
+Error Messages | Description 
+------------ | ------------ 
+{"error":{"code":-1125,"msg":"Invalid ListenKey "}} | Invalid ListenKey 
+{"error":{"code":-1130,"msg":"UNKNOWN_PARAM "}} | UNKNOWN_PARAM
+
+
