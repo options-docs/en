@@ -92,7 +92,7 @@ NONE
       "contractId": 1,
       "underlying": "BTCUSDT",          // Underlying asset of the contract
       "quoteAsset": "USDT",             // Quotation asset
-      "symbol": "BTCUSDT-200730-9000-C",// Trading pair name
+      "symbol": "BTC-200730-9000-C",// Trading pair name
       "unit": 1,                        // Conversion ratio, the quantity of the underlying asset represented by a single contract.
       "minQty": 1,                      // Minimum trade volume of the underlying asset
       "side": "CALL",                   // Direction: CALL long, PUT short
@@ -193,7 +193,7 @@ underlying | STRING | YES | Spot pair（Option contract underlying asset） | BT
 
 Name | Type | Mandatory | Description | Demo
 ------------ | ------------ | ------------ | ------------ | ------------ 
-symbol | STRING | NO | Option trading pair | BTCUSDT-200730-9000-C
+symbol | STRING | NO | Option trading pair | BTC-200730-9000-C
 
 >**Response:**
 
@@ -203,7 +203,7 @@ symbol | STRING | NO | Option trading pair | BTCUSDT-200730-9000-C
   "msg": "success",
   "data": [
     {
-      "symbol": "BTCUSDT-200730-9000-C",
+      "symbol": "BTC-200730-9000-C",
       "priceChange": "-16.2038",        //24-hour price change
       "priceChangePercent": "-0.0162",  //24-hour percent price change
       "lastPrice": "1000",              //Last trade price
@@ -233,7 +233,7 @@ symbol | STRING | NO | Option trading pair | BTCUSDT-200730-9000-C
 
 Name | Type | Mandatory | Description | Demo
 ------------ | ------------ | ------------ | ------------ | ------------ 
-symbol | STRING | NO | Option trading pair | BTCUSDT-200730-9000-C
+symbol | STRING | NO | Option trading pair | BTC-200730-9000-C
 
 >**Response:**
 
@@ -243,7 +243,7 @@ symbol | STRING | NO | Option trading pair | BTCUSDT-200730-9000-C
   "msg": "success",
   "data": [
     {
-      "symbol": "BTCUSDT-200730-9000-C",
+      "symbol": "BTC-200730-9000-C",
       "markPrice": 1343.2883,       // Mark price
       "bidIV": "1.40000077",        // Implied volatility Buy
       "askIV": "1.50000153",        // Implied volatility Sell
@@ -269,7 +269,7 @@ symbol | STRING | NO | Option trading pair | BTCUSDT-200730-9000-C
 
 Name | Type | Mandatory | Description | Demo
 ------------ | ------------ | ------------ | ------------ | ------------ 
-symbol | STRING | YES | Option trading pair | BTCUSDT-200730-9000-C
+symbol | STRING | YES | Option trading pair | BTC-200730-9000-C
 limit | INT | NO | Default:100 Max:1000.Optional value:[10, 20, 50, 100, 500, 1000] | 100
 
 >**Response:**
@@ -306,7 +306,7 @@ limit | INT | NO | Default:100 Max:1000.Optional value:[10, 20, 50, 100, 500, 10
 
 Name | Type | Mandatory | Description | Demo
 ------------ | ------------ | ------------ | ------------ | ------------ 
-symbol | STRING | YES | Option trading pair | BTCUSDT-200730-9000-C
+symbol | STRING | YES | Option trading pair | BTC-200730-9000-C
 interval | STRING | YES | Time interval | 5m
 startTime | LONG | NO | Start Time | 1592317127349
 endTime | LONG | NO | End Time | 1592318127349
@@ -347,7 +347,7 @@ limit | INT | NO | Number of records Default:500 Max:1500 | 500
 
 Name | Type | Mandatory | Description | Demo
 ------------ | ------------ | ------------ | ------------ | ------------ 
-symbol | STRING | YES | Option trading pair | BTCUSDT-200730-9000-C
+symbol | STRING | YES | Option trading pair | BTC-200730-9000-C
 limit | INT | NO | Number of records Default:100 Max:500 | 100
 
 >**Response:**
@@ -379,7 +379,7 @@ limit | INT | NO | Number of records Default:100 Max:500 | 100
 
 Name | Type | Mandatory | Description | Demo
 ------------ | ------------ | ------------ | ------------ | ------------ 
-symbol | STRING | YES | Option trading pair | BTCUSDT-200730-9000-C
+symbol | STRING | YES | Option trading pair | BTC-200730-9000-C
 fromId | LONG | NO | The deal ID from which to return. The latest deal record is returned by default | 1592317127349
 limit | INT | NO | Number of records Default:100 Max:500 | 100
 
@@ -556,7 +556,7 @@ timestamp | LONG | YES |  |
 
 Name | Type | Mandatory | Description |  Demo
 ------------ | ------------ | ------------ | ------------ | ------------ 
-symbol | STRING | NO | Option trading pair | BTCUSDT-200730-9000-C
+symbol | STRING | NO | Option trading pair | BTC-200730-9000-C
 recvWindow | LONG | NO |  | 
 timestamp | LONG | YES |  | 
 
@@ -569,7 +569,7 @@ timestamp | LONG | YES |  |
   "data": [
     {
       "entryPrice": 1000,               // Average entry price
-      "symbol": "BTCUSDT-200730-9000-C",// Option trading pair
+      "symbol": "BTC-200730-9000-C",// Option trading pair
       "side": "SHORT",                  // Position direction
       "leverage": 0,                    // Leverage
       "quantity": -0.1,                 // Number of positions (positive numbers represent long positions, negative number represent short positions)
@@ -648,7 +648,7 @@ timestamp | LONG | YES |  |
 
 Name | Type | Mandatory | Description |  Demo
 ------------ | ------------ | ------------ | ------------ | ------------ 
-symbol | STRING | YES | Option trading pair | BTCUSDT-200730-9000-C
+symbol | STRING | YES | Option trading pair | BTC-200730-9000-C
 side | ENUM | YES | Buy/sell direction: SELL, BUY | BUY
 type | ENUM | YES | Order Type: LIMIT, MARKET | LIMIT
 quantity | DECIMAL | YES | Order Quantity | 3
@@ -676,7 +676,7 @@ MARKET | quantity
   "msg": "success",
   "data": {
     "id": "4611875134427365377",        // System order number
-    "symbol": "BTCUSDT-200730-9000-C",  // Option trading pair
+    "symbol": "BTC-200730-9000-C",  // Option trading pair
     "price": 100,                       // Order Price
     "quantity": 1,                      // Order Quantity
     "executedQty": 0,                   // Number of completed trades
@@ -705,7 +705,7 @@ MARKET | quantity
 
 Name | Type | Mandatory | Description |  Demo
 ------------ | ------------ | ------------ | ------------ | ------------ 
-symbol | STRING | YES | Option trading pair | BTCUSDT-200730-9000-C
+symbol | STRING | YES | Option trading pair | BTC-200730-9000-C
 orderId | LONG | NO | Order ID | 4611875134427365377
 clientOrderId | STRING | NO | User-defined order ID | 10000
 recvWindow | LONG | NO |  | 
@@ -721,7 +721,7 @@ At least one instance of orderId and clientOrderId must be sent.
   "msg": "success",
   "data": {
     "id": "4611875134427365377",        // System order number
-    "symbol": "BTCUSDT-200730-9000-C",  // Option trading pair
+    "symbol": "BTC-200730-9000-C",  // Option trading pair
     "price": 100,                       // Order Price
     "quantity": 1,                      // Order Quantity
     "executedQty": 0,                   // Number of completed trades
@@ -750,7 +750,7 @@ At least one instance of orderId and clientOrderId must be sent.
 
 Name | Type | Mandatory | Description |  Demo
 ------------ | ------------ | ------------ | ------------ | ------------ 
-symbol | STRING | YES | Option trading pair | BTCUSDT-200730-9000-C
+symbol | STRING | YES | Option trading pair | BTC-200730-9000-C
 recvWindow | LONG | NO |  | 
 timestamp | LONG | YES |  | 
 
@@ -774,7 +774,7 @@ timestamp | LONG | YES |  |
 
 Name | Type | Mandatory | Description |  Demo
 ------------ | ------------ | ------------ | ------------ | ------------ 
-symbol | STRING | YES | Option trading pair | BTCUSDT-200730-9000-C
+symbol | STRING | YES | Option trading pair | BTC-200730-9000-C
 orderId | LONG | NO | Order ID | 4611875134427365377
 clientOrderId | STRING | NO | User-defined order ID | 10000
 recvWindow | LONG | NO |  | 
@@ -790,7 +790,7 @@ At least one instance of orderId and clientOrderId must be sent.
   "msg": "success",
   "data": {
     "id": "4611875134427365377",        // System order number
-    "symbol": "BTCUSDT-200730-9000-C",  // Option trading pair
+    "symbol": "BTC-200730-9000-C",  // Option trading pair
     "price": 100,                       // Order Price
     "quantity": 1,                      // Order Quantity
     "executedQty": 0,                   // Number of completed trades
@@ -819,7 +819,7 @@ At least one instance of orderId and clientOrderId must be sent.
 
 Name | Type | Mandatory | Description |  Demo
 ------------ | ------------ | ------------ | ------------ | ------------ 
-symbol | STRING | YES | Option trading pair | BTCUSDT-200730-9000-C
+symbol | STRING | YES | Option trading pair | BTC-200730-9000-C
 orderId | LONG | NO | Returns the orderId and subsequent orders, the most recent order is returned by default | 100000
 startTime | LONG | NO | Start Time | 1593511200000
 endTime | LONG | NO | End Time | 1593512200000
@@ -836,7 +836,7 @@ timestamp | LONG | YES |  |
   "data": [
     {
       "id": "4611875134427365377",        // System order number
-      "symbol": "BTCUSDT-200730-9000-C",  // Option trading pair
+      "symbol": "BTC-200730-9000-C",  // Option trading pair
       "price": 100,                       // Order Price
       "quantity": 1,                      // Order Quantity
       "executedQty": 0,                   // Number of completed trades
@@ -866,7 +866,7 @@ timestamp | LONG | YES |  |
 
 Name | Type | Mandatory | Description |  Demo
 ------------ | ------------ | ------------ | ------------ | ------------ 
-symbol | STRING | YES | Option trading pair | BTCUSDT-200730-9000-C
+symbol | STRING | YES | Option trading pair | BTC-200730-9000-C
 orderId | LONG | NO | Returns the orderId and subsequent orders, the most recent order is returned by default | 100000
 startTime | LONG | NO | Start Time | 1593511200000
 endTime | LONG | NO | End Time | 1593512200000
@@ -883,7 +883,7 @@ timestamp | LONG | YES |  |
   "data": [
     {
       "id": "4611875134427365377",        // System order number
-      "symbol": "BTCUSDT-200730-9000-C",  // Option trading pair
+      "symbol": "BTC-200730-9000-C",  // Option trading pair
       "price": 100,                       // Order Price
       "quantity": 1,                      // Order Quantity
       "executedQty": 0,                   // Number of completed trades
@@ -1051,7 +1051,7 @@ Request
 "method": "SUBSCRIBE",
 "params":
 [
-"BTCUSDT-200630-9000-P@ticker"
+"BTC-200630-9000-P@ticker"
 ],
 "id": 1
 }
@@ -1063,7 +1063,7 @@ Request
 {
    "e":"ticker",                // event type
    "E":1591677962357,           // event time
-   "s":"BTCUSDT-200630-9000-P", // currency
+   "s":"BTC-200630-9000-P", // currency
    "o":"1000",                  // 24-hour opening price 
    "h":"1000",                  // Highest price
    "l":"1000",                  // Lowest price
@@ -1093,7 +1093,7 @@ Request
 "method": "SUBSCRIBE",
 "params":
 [
-"BTCUSDT-200630-9000-P@trade"
+"BTC-200630-9000-P@trade"
 ],
 "id": 1
 }
@@ -1105,7 +1105,7 @@ Request
 {
     "e":"trade",                        // event type
     "E":1591677941092,                  // event time
-    "s":"BTCUSDT-200630-9000-P",        // currency
+    "s":"BTC-200630-9000-P",        // currency
     "t":[                               // trade history
         {
             "t":"1",                    // trade id
@@ -1128,7 +1128,7 @@ Request
 "method": "SUBSCRIBE",
 "params":
 [
-"BTCUSDT-200630-9000-P@kline_1m"
+"BTC-200630-9000-P@kline_1m"
 ],
 "id": 1
 }
@@ -1156,7 +1156,7 @@ Cycle
 {
     "e":"kline",                        // event type
     "E":1591677941085,                  // event time
-    "s":"BTCUSDT-200630-9000-P",        // currency
+    "s":"BTC-200630-9000-P",            // currency
     "k":[{                              // second to last
         "t":1591677900000,              // candle event
         "i":"1m",                       // candle period
@@ -1167,83 +1167,4 @@ Cycle
         "l":"1000",                     // low
         "c":"1000",                     // close
         "v":"0",                        // volume
-        "n":0,                          // number of trades
-        "q":"0",                        // completed trade amount
-        "x":false,                      // current candle has been completed Y/N
-        "V":"0",                        // taker completed trade volume
-        "Q":"0"                         // taker trade amount
-    },{                                 // Latest candle data
-        "t":1591677900000,              // candle event
-        "i":"1m",                       // candle period
-        "F":0,                          // first trade ID
-        "L":0,                          // last trade ID
-        "o":"1000",                     // open
-        "h":"1000",                     // high    
-        "l":"1000",                     // low
-        "c":"1000",                     // close
-        "v":"0",                        // volume
-        "n":0,                          // number of trades
-        "q":"0",                        // completed trade amount
-        "x":false,                      // current candle has been completed Y/N
-        "V":"0",                        // taker completed trade volume
-        "Q":"0"                         // taker trade amount
-    }
-  ]
-}
-```
-### Market Streams Payload: Depth
-Request
-```javascript
-{
-"method": "SUBSCRIBE",
-"params":
-[
-"BTCUSDT-200630-9000-P@depth10"
-],
-"id": 1
-}
-
-```
-Cycle
-```html
-"10", 
-"20", 
-"50",
-"100"
-```
->**Response:**
-
-```javascript
-{
-    "e":"depth",                    // event type
-    "E":1591695934033,              // event time
-    "s":"BTCUSDT-200630-9000-P",    // currency
-    "b":[                           // Buyorder
-        [
-            "200",                  // Price
-            "3",                    // volume
-        ],
-        [
-            "101",
-            "1"
-        ],
-        [
-            "100",
-            "2"
-        ]
-    ],
-    "a":[                           // Sellorder
-        [
-            "1000",
-            "89"
-        ]
-    ]
-}
-```
-Websocket Error Messages
-
-Error Messages | Description 
------------- | ------------ 
-{"error":{"code":-1125,"msg":"Invalid ListenKey "}} | Invalid ListenKey 
-{"error":{"code":-1130,"msg":"UNKNOWN_PARAM "}} | UNKNOWN_PARAM
-
+        "n":0,                          // 
