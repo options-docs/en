@@ -1371,7 +1371,12 @@ Cycle
     ]
 }
 ```
-
+## The right way to maintain a deep copy locally.
+	1.	Send a deep subscription request. To get a full deep copy on the first return, it has to come from a local cache.
+	2.	Start caching updates as received. Updates received later at the same price will cover the previous updates.
+	3.	If the volume of a pending order corresponding to a given price is 0, it means that the order at that price has already been canceled or filled, so this           price should be removed.
+	4.	If a given price does not exist in the local cache, add a new local cache.
+	5.	If the connection is lost, please reconnect and then repeat steps 1-4.
 Websocket Error Messages
 
 Error Messages | Description 
