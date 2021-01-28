@@ -23,7 +23,7 @@
 ### Endpoint Error Codes
 
 * Any endpoint can return an ERROR
-* Specific error codes and messages defined in [Error Codes](#errorcodes).
+* Specific error codes and messages defined in [Error Codes](#error codes).
 
 ### General Information on Endpoints
 
@@ -1708,7 +1708,7 @@ Error Messages | Description
 {"error":{"code":-1130,"msg":"UNKNOWN_PARAM "}} | UNKNOWN_PARAM
 
 
-# ErrorCodes
+# Error Codes
 
 Errors consist of two parts: an error code and a message.
 Codes are universal, but messages can vary.
