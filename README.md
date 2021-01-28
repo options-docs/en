@@ -23,7 +23,7 @@
 ### Endpoint Error Codes
 
 * Any endpoint can return an ERROR
-* Specific error codes and messages defined in [ErrorCodes](#ErrorCodes).
+* Specific error codes and messages defined in [Error Codes](#errorcodes).
 
 ### General Information on Endpoints
 
