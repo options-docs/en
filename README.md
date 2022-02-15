@@ -844,7 +844,7 @@ Name | Type | Mandatory | Description |  Demo
 ------------ | ------------ | ------------ | ------------ | ------------ 
 symbol | STRING | YES | Option trading pair | BTC-200730-9000-C
 side | ENUM | YES | Buy/sell direction: SELL, BUY | BUY
-type | ENUM | YES | Order Type: LIMIT, MARKET | LIMIT
+type | ENUM | YES | Order Type: LIMIT(Only support LIMIT) | LIMIT
 quantity | DECIMAL | YES | Order Quantity | 3
 price | DECIMAL | NO | Order Price | 1000
 timeInForce | ENUM | NO | Time in force method（Default GTC） | GTC
@@ -911,7 +911,7 @@ Name | Type | Mandatory | Description |  Demo
 ------------ | ------------ | ------------ | ------------ | ------------ 
 symbol | STRING | YES | Option trading pair | BTC-200730-9000-C
 side | ENUM | YES | Buy/sell direction: SELL, BUY | BUY
-type | ENUM | YES | Order Type: LIMIT, MARKET | LIMIT
+type | ENUM | YES | Order Type: LIMIT(Only support LIMIT) | LIMIT
 quantity | DECIMAL | YES | Order Quantity | 3
 price | DECIMAL | NO | Order Price | 1000
 timeInForce | ENUM | NO | Time in force method（Default GTC） | GTC
